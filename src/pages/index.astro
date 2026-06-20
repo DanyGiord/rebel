@@ -13,6 +13,7 @@ import Layout from '../layouts/Layout.astro';
       muted
       loop
       playsinline
+      preload="metadata"
     ></video>
 
     <!-- Overlay -->
@@ -222,7 +223,7 @@ import Layout from '../layouts/Layout.astro';
     padding: 14px 28px;
     border: 1px solid rgba(255,255,255,0.18);
     background: rgba(255,255,255,0.04);
-    backdrop-filter: blur(8px);
+    background: rgba(255,255,255,0.06);
     text-decoration: none;
     color: #fff;
     transition: background 0.2s, border-color 0.2s, transform 0.2s;
@@ -310,10 +311,15 @@ import Layout from '../layouts/Layout.astro';
 
   @media (max-width: 480px) {
     .home-nav { padding: 16px 20px; }
-    .home-links { display: none; }
+    .home-links { gap: 16px; }
+    .home-links a { font-size: 9px; letter-spacing: 0.1em; }
     .home-content { padding: 0 20px; }
     .home-scroll { display: none; }
     .home-products { flex-direction: column; }
     .prod-card { justify-content: space-between; }
+  }
+
+  @media (max-width: 360px) {
+    .home-links { display: none; }
   }
 </style>

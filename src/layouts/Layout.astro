@@ -5,7 +5,8 @@ import { ClientRouter } from 'astro:transitions';
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#070707" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
@@ -28,13 +29,13 @@ import { ClientRouter } from 'astro:transitions';
 
   function initAnimations() {
     ScrollTrigger.getAll().forEach(t => t.kill());
-    gsap.killTweensOf('.product-img, .product-ground');
+    gsap.globalTimeline.clear();
 
-    // Restore all elements to natural state before re-animating
-    gsap.set(
-      '.desc-left, .body-text > *, .sb-row, .nutr-table tbody tr, .usage-step, .ingredients-block, .usage-warning, .timing-note, .nutrition-block, .nav, .hero-wordmark, .label-tag, .hero-heading, .hero-desc, .btn-guide, .hero-center, .hero-right, .scroll-hint, .hero-left .spec-item',
-      { clearProps: 'all' }
+    // Reset all GSAP-touched elements
+    const resetTargets = document.querySelectorAll(
+      '.hero-wordmark, .label-tag, .hero-heading, .hero-desc, .hero-center, .hero-right, .hero-right > *, .scroll-hint, .hero-left .spec-item, .btn-guide, .nav'
     );
+    if (resetTargets.length) gsap.set(resetTargets, { clearProps: 'all' });
 
     // ── Hero entrance (nav, heading, product only) ────────────────────
     const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.05 });
@@ -47,7 +48,7 @@ import { ClientRouter } from 'astro:transitions';
       .from('.hero-center',      { y: 44, opacity: 0, scale: 0.95, duration: 0.9, ease: 'expo.out' }, 0.18)
       .from('.hero-left .spec-item', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08 }, 0.4)
       .from('.btn-guide',        { y: 16, opacity: 0, duration: 0.4 }, 0.82)
-      .from('.hero-right > *',   { x: 24, opacity: 0, duration: 0.5, stagger: 0.07 }, 0.35)
+      .from('.hero-right > *',   { x: 24, opacity: 0, duration: 0.5, stagger: 0.07, immediateRender: false }, 0.35)
       .from('.scroll-hint',      { opacity: 0, duration: 0.4 }, 0.95);
 
     // ── Product float ────────────────────────────────────────────────

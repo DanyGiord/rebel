@@ -1,24 +1,11 @@
 ---
-import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from 'lucide-astro';
+import { ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from 'lucide-astro';
+import Nav from './Nav.astro';
 ---
 
 <section class="hero">
   <div class="hero-bg"></div>
-
-  <!-- Nav -->
-  <nav class="nav">
-    <a href="/" class="nav-logo" transition:name="nav-logo" transition:animate="none">
-      <img src="/logo.svg" alt="Battery Nutrition" height="36" />
-    </a>
-    <ul class="nav-links">
-      <li><a href="/creatine">Creatine</a></li>
-      <li><a href="/bcaa">BCAA</a></li>
-      <li><a href="/whey" class="active">Whey</a></li>
-    </ul>
-    <div class="nav-cart">
-      <ShoppingCart size={20} />
-    </div>
-  </nav>
+  <Nav active="whey" />
 
   <!-- Hero watermark title -->
   <div class="hero-wordmark" aria-hidden="true">WHEY</div>
@@ -28,9 +15,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
 
     <!-- LEFT -->
     <div class="hero-left">
-      <div class="label-tag">
-        <span class="tag-line"></span>/REBEL LINE
-      </div>
 
       <h1 class="hero-heading">
         <span class="line-sm">REBEL</span>
@@ -96,6 +80,8 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
           src="/whey1.png"
           alt="Rebel Whey Protein — Battery Nutrition"
           class="product-img"
+          decoding="async"
+          fetchpriority="high"
         />
         <div class="product-ground"></div>
       </div>
@@ -259,58 +245,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
     opacity: 0.8;
   }
-
-  /* ===== NAV ===== */
-  .nav {
-    position: relative;
-    z-index: 30;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 32px 64px;
-    opacity: 0;
-    animation: fadeUp 0.5s ease forwards;
-  }
-
-  .nav-logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-  }
-
-  .nav-logo img {
-    height: 36px;
-    width: auto;
-    display: block;
-  }
-
-  .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 36px;
-    margin: 0; padding: 0;
-  }
-
-  .nav-links a {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.4);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .nav-links a:hover { color: var(--w); }
-  .nav-links a.active { color: var(--c); }
-
-  .nav-cart {
-    color: rgba(255,255,255,0.6);
-    cursor: pointer;
-    transition: color 0.2s;
-  }
-
-  .nav-cart:hover { color: var(--c); }
 
   /* ===== WATERMARK ===== */
   .hero-wordmark {
@@ -822,7 +756,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
 
   /* ===== RESPONSIVE ===== */
   @media (max-width: 1280px) {
-    .nav { padding: 28px 40px; }
     .hero-grid { padding: 0 40px 60px; }
   }
 
@@ -836,8 +769,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
   }
 
   @media (max-width: 768px) {
-    .nav { padding: 20px 28px; }
-    .nav-links { gap: 20px; }
     .hero { min-height: auto; padding-bottom: 48px; }
     .hero-grid { padding: 0 28px 48px; gap: 20px; }
     .price-value { font-size: 48px; }
@@ -847,8 +778,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
   }
 
   @media (max-width: 680px) {
-    .nav { padding: 18px 20px; }
-    .nav-links { display: none; }
     .hero-grid { grid-template-columns: 1fr; padding: 0 20px 48px; gap: 28px; }
     .hero-center { grid-column: 1; grid-row: 1; }
     .hero-left   { grid-column: 1; grid-row: 2; padding-right: 0; }
@@ -862,7 +791,6 @@ import { ShoppingCart, ArrowRight, FlaskConical, Zap, Award, Smile, Tag } from '
 
   @media (max-width: 420px) {
     .hero-grid { padding: 0 16px 40px; }
-    .nav { padding: 16px; }
     .line-lg { font-size: clamp(44px, 14vw, 72px); }
     .price-value { font-size: 40px; }
     .btn-buy { padding: 14px 18px; }

@@ -1,0 +1,246 @@
+---
+import { ShoppingCart } from 'lucide-astro';
+interface Props { active?: 'creatine' | 'bcaa' | 'whey' }
+const { active } = Astro.props;
+---
+
+<nav class="nav">
+  <a href="/" class="nav-logo" transition:name="nav-logo" transition:animate="none">
+    <img src="/logo.svg" alt="Battery Nutrition" height="36" decoding="async" />
+  </a>
+  <ul class="nav-links">
+    <li><a href="/creatine" class={active === 'creatine' ? 'active' : ''}>Creatine</a></li>
+    <li><a href="/bcaa"     class={active === 'bcaa'     ? 'active' : ''}>BCAA</a></li>
+    <li><a href="/whey"     class={active === 'whey'     ? 'active' : ''}>Whey</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="nav-cart"><ShoppingCart size={20} /></div>
+    <button class="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile overlay -->
+<div class="mob-menu" aria-hidden="true">
+  <button class="mob-close" aria-label="Close menu">
+    <span></span><span></span>
+  </button>
+  <ul class="mob-links">
+    <li><a href="/"          class="mob-link">Home</a></li>
+    <li><a href="/creatine"  class="mob-link">Creatine</a></li>
+    <li><a href="/bcaa"      class="mob-link">BCAA</a></li>
+    <li><a href="/whey"      class="mob-link">Whey</a></li>
+  </ul>
+  <p class="mob-brand">BATTERY NUTRITION / REBEL LINE</p>
+</div>
+<div class="mob-backdrop"></div>
+
+<script>
+  function initNav() {
+    const hamburger = document.querySelector<HTMLButtonElement>('.hamburger');
+    const mobMenu   = document.querySelector<HTMLElement>('.mob-menu');
+    const backdrop  = document.querySelector<HTMLElement>('.mob-backdrop');
+    const mobClose  = document.querySelector<HTMLButtonElement>('.mob-close');
+    const mobLinks  = document.querySelectorAll<HTMLAnchorElement>('.mob-link');
+
+    if (!hamburger || !mobMenu || !backdrop) return;
+
+    function open() {
+      mobMenu.classList.add('is-open');
+      backdrop.classList.add('is-open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function close() {
+      mobMenu.classList.remove('is-open');
+      backdrop.classList.remove('is-open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    }
+
+    hamburger.addEventListener('click', open);
+    mobClose?.addEventListener('click', close);
+    backdrop.addEventListener('click', close);
+    mobLinks.forEach(a => a.addEventListener('click', close));
+  }
+
+  initNav();
+  document.addEventListener('astro:page-load', initNav);
+</script>
+
+<style>
+  /* ── Desktop nav ── */
+  .nav {
+    position: relative;
+    z-index: 30;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 64px;
+  }
+
+  .nav-logo { display: flex; align-items: center; text-decoration: none; }
+  .nav-logo img { height: 36px; width: auto; display: block; }
+
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    margin: 0; padding: 0;
+  }
+
+  .nav-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: #fff; }
+  .nav-links a.active { color: var(--c, var(--a, #fff)); }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .nav-cart { color: rgba(255,255,255,0.6); cursor: pointer; transition: color 0.2s; }
+  .nav-cart:hover { color: var(--c, var(--a, #fff)); }
+
+  /* ── Hamburger ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: rgba(255,255,255,0.75);
+    transition: transform 0.25s ease, opacity 0.2s ease;
+    transform-origin: center;
+  }
+
+  /* ── Mobile overlay ── */
+  .mob-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #070707;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px;
+    transform: translateX(100%);
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+
+  .mob-menu.is-open { transform: translateX(0); }
+
+  .mob-close {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: 1px solid rgba(255,255,255,0.14);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mob-close span {
+    position: absolute;
+    width: 16px;
+    height: 1.5px;
+    background: rgba(255,255,255,0.7);
+  }
+
+  .mob-close span:first-child { transform: rotate(45deg); }
+  .mob-close span:last-child  { transform: rotate(-45deg); }
+
+  .mob-links {
+    list-style: none;
+    margin: 0; padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .mob-links li {
+    overflow: hidden;
+  }
+
+  .mob-link {
+    display: block;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 14vw, 88px);
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    line-height: 1.05;
+    transition: color 0.2s;
+  }
+
+  .mob-link:hover { color: #fff; }
+
+  .mob-brand {
+    position: absolute;
+    bottom: 32px;
+    left: 48px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.2);
+    text-transform: uppercase;
+    margin: 0;
+  }
+
+  /* Backdrop */
+  .mob-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 199;
+    background: rgba(0,0,0,0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+  }
+
+  .mob-backdrop.is-open { opacity: 1; pointer-events: all; }
+
+  /* ── Responsive ── */
+  @media (max-width: 680px) {
+    .nav { padding: 18px 20px; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+  }
+
+  @media (max-width: 1280px) {
+    .nav { padding: 28px 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .nav { padding: 20px 28px; }
+    .nav-links { gap: 20px; }
+    .nav-links a { font-size: 10px; }
+  }
+</style>
