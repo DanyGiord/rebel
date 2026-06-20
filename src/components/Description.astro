@@ -1,0 +1,807 @@
+---
+import {
+  TriangleAlert, Zap, TrendingUp, Shield, Dumbbell,
+  Droplets, Clock, Sunrise, FlaskConical, Award
+} from 'lucide-astro';
+---
+
+<section class="desc-section">
+
+  <!-- ── TOP: title + body ── -->
+  <div class="desc-inner">
+    <div class="desc-left">
+      <div class="desc-tag">
+        <span class="tag-line"></span>Food Supplement
+      </div>
+      <h2 class="desc-title">REBEL<br/><span>CREATINE</span></h2>
+      <p class="desc-subtitle">100% Creatine Monohydrate</p>
+
+      <div class="desc-meta">
+        <div class="meta-item">
+          <span class="meta-num">300<small>g</small></span>
+          <span class="meta-lbl">Net quantity</span>
+        </div>
+        <div class="meta-div"></div>
+        <div class="meta-item">
+          <span class="meta-num">60</span>
+          <span class="meta-lbl">Servings</span>
+        </div>
+        <div class="meta-div"></div>
+        <div class="meta-item">
+          <span class="meta-num">4,5<small>g</small></span>
+          <span class="meta-lbl">Per serving</span>
+        </div>
+      </div>
+
+      <!-- Purity badge -->
+      <div class="purity-badge">
+        <div class="purity-icon"><FlaskConical size={18} /></div>
+        <div class="purity-text">
+          <span class="purity-val">100%</span>
+          <span class="purity-lbl">Pure Creatine Monohydrate</span>
+        </div>
+      </div>
+
+      <div class="cert-row">
+        <div class="cert-item">
+          <Award size={14} />
+          <span>Lab tested</span>
+        </div>
+        <div class="cert-item">
+          <Shield size={14} />
+          <span>No fillers</span>
+        </div>
+        <div class="cert-item">
+          <Zap size={14} />
+          <span>Unflavoured</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="desc-right">
+      <p class="lead">
+        REBEL CREATINE is a safe and effective supplement to boost performance during
+        high-intensity exercise, particularly when combined with strength training,
+        making it one of the best supplements to support your workout.
+      </p>
+
+      <p class="body-p">
+        Supplementing with creatine increases the phosphocreatine stores in your muscles
+        during high-intensity exercise to produce more ATP, leading to gains in lean muscle
+        mass, and enhancing power and strength<sup>**</sup>. Phosphocreatine, also known as
+        creatine phosphate, is a naturally occurring organic compound that facilitates muscle
+        contractions. It is found in muscle tissues and allows for maximum bursts of energy
+        lasting about 5 to 6 seconds.
+      </p>
+
+      <p class="body-p">
+        Many bodybuilders and athletes supplement with creatine to enhance their performance
+        in their sport. But creatine supplements may also benefit older adults who experience
+        drops in phosphocreatine from middle age onward.
+      </p>
+
+      <div class="footnotes">
+        <p><sup>*</sup> A balanced and varied diet and a healthy lifestyle are important.</p>
+        <p><sup>**</sup> The beneficial effect is achieved with a daily intake of 3 g of creatine.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── BENEFITS BAND ── -->
+  <div class="benefits-band">
+    <div class="benefit-card">
+      <div class="benefit-icon"><Zap size={22} /></div>
+      <strong>Power Output</strong>
+      <span>Increases explosive strength and peak power during high-intensity efforts</span>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><TrendingUp size={22} /></div>
+      <strong>Muscle Growth</strong>
+      <span>Supports lean muscle mass gains when combined with resistance training</span>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><Dumbbell size={22} /></div>
+      <strong>Performance</strong>
+      <span>Delays fatigue and enhances repeated sprint and lifting performance</span>
+    </div>
+    <div class="benefit-card">
+      <div class="benefit-icon"><Shield size={22} /></div>
+      <strong>100% Pure</strong>
+      <span>No additives, fillers or flavourings — just pure creatine monohydrate</span>
+    </div>
+  </div>
+
+  <!-- ── RECOMMENDED USE ── -->
+  <div class="usage-section">
+    <div class="section-header">
+      <span class="tag-line"></span>
+      <span class="section-label">Recommended Use</span>
+    </div>
+
+    <div class="usage-steps">
+      <div class="usage-step">
+        <div class="step-icon"><Dumbbell size={20} /></div>
+        <span class="step-num">01</span>
+        <div class="step-body">
+          <span class="step-title">Serving size</span>
+          <span class="step-text">1 scoop full (5 g)</span>
+        </div>
+      </div>
+      <div class="usage-step">
+        <div class="step-icon"><Droplets size={20} /></div>
+        <span class="step-num">02</span>
+        <div class="step-body">
+          <span class="step-title">Mix with</span>
+          <span class="step-text">250 ml water</span>
+        </div>
+      </div>
+      <div class="usage-step">
+        <div class="step-icon"><Clock size={20} /></div>
+        <span class="step-num">03</span>
+        <div class="step-body">
+          <span class="step-title">Training days</span>
+          <span class="step-text">1 serving before training</span>
+        </div>
+      </div>
+      <div class="usage-step">
+        <div class="step-icon"><Sunrise size={20} /></div>
+        <span class="step-num">04</span>
+        <div class="step-body">
+          <span class="step-title">Rest days</span>
+          <span class="step-text">Morning, empty stomach</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="usage-warning">
+      <TriangleAlert size={14} />
+      <p>Weight gain may occur. Do not exceed the recommended daily dose. Do not use as a substitute for a balanced diet. Keep out of reach of children.</p>
+    </div>
+  </div>
+
+  <!-- ── NUTRITION ── -->
+  <div class="nutrition-section">
+    <div class="section-header">
+      <span class="tag-line"></span>
+      <span class="section-label">Nutrition Information</span>
+      <span class="nutr-product">BATTERY REBEL CREATINE — UNFLAVOURED</span>
+    </div>
+
+    <div class="nutr-layout">
+      <div class="nutr-highlight">
+        <span class="nutr-big">5<small>g</small></span>
+        <span class="nutr-big-lbl">Creatine monohydrate<br/>per serving</span>
+        <div class="nutr-sub-val">
+          <span class="nsv-num">4,5g</span>
+          <span class="nsv-lbl">pure creatine</span>
+        </div>
+      </div>
+
+      <table class="nutr-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Per serving (5 g)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="nutr-row-main">
+            <td>Creatine monohydrate</td>
+            <td>5 g</td>
+          </tr>
+          <tr class="nutr-row-sub">
+            <td>— of which creatine</td>
+            <td>4,5 g</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── INGREDIENTS ── -->
+  <div class="ingredients-section">
+    <div class="section-header">
+      <span class="tag-line"></span>
+      <span class="section-label">Ingredients</span>
+    </div>
+
+    <div class="ingredients-block">
+      <span class="ing-tag">UNFLAVOURED</span>
+      <p class="ing-main">Creatine monohydrate.</p>
+      <p class="ing-allergen">
+        May contain traces of
+        <strong>egg</strong>, <strong>gluten</strong>, <strong>soy</strong>,
+        <strong>peanuts</strong>, <strong>nuts</strong>, <strong>fish</strong>,
+        <strong>crustaceans</strong> and <strong>sulphur dioxide</strong>.
+      </p>
+    </div>
+  </div>
+
+</section>
+
+<style>
+  :root {
+    --c: #00e5ff;
+    --m: #ff1dbe;
+  }
+
+  .desc-section {
+    position: relative;
+    background: #070707;
+    color: #ffffff;
+    font-family: 'Rajdhani', sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    padding: 100px 0 120px;
+  }
+
+  /* ── Shared ── */
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .nutr-product {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.2);
+    margin-left: auto;
+  }
+
+  .tag-line {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--c);
+    flex-shrink: 0;
+  }
+
+  /* ── TOP TWO-COL ── */
+  .desc-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 72px;
+    align-items: start;
+  }
+
+  .desc-left {
+    position: sticky;
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .desc-tag {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    color: var(--c);
+    text-transform: uppercase;
+  }
+
+  .desc-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(52px, 5vw, 76px);
+    line-height: 0.88;
+    margin: 0;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.9);
+  }
+
+  .desc-title span {
+    background: linear-gradient(120deg, var(--c), var(--m));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .desc-subtitle {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin: 0;
+  }
+
+  .desc-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .meta-item { display: flex; flex-direction: column; gap: 4px; }
+
+  .meta-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    color: #fff;
+  }
+
+  .meta-num small { font-size: 0.55em; color: var(--m); }
+
+  .meta-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.32);
+  }
+
+  .meta-div {
+    width: 1px; height: 40px;
+    background: rgba(255,255,255,0.08);
+    flex-shrink: 0;
+  }
+
+  /* Purity badge */
+  .purity-badge {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border: 1px solid rgba(0,229,255,0.15);
+    background: rgba(0,229,255,0.04);
+  }
+
+  .purity-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(0,229,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--c);
+    flex-shrink: 0;
+  }
+
+  .purity-text { display: flex; flex-direction: column; gap: 2px; }
+
+  .purity-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: var(--c);
+  }
+
+  .purity-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.4);
+  }
+
+  /* Cert row */
+  .cert-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    padding: 6px 12px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .cert-item svg { color: var(--c); flex-shrink: 0; }
+
+  /* Right body */
+  .desc-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .lead {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.78);
+    line-height: 1.65;
+    padding-left: 20px;
+    border-left: 2px solid var(--c);
+    margin: 0;
+  }
+
+  .body-p {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.52);
+    letter-spacing: 0.01em;
+    margin: 0;
+  }
+
+  .body-p sup {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.65em;
+    color: var(--c);
+    vertical-align: super;
+  }
+
+  .footnotes {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .footnotes p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.05em;
+    color: rgba(255,255,255,0.25);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ── BENEFITS BAND ── */
+  .benefits-band {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .benefit-card {
+    background: #070707;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    transition: background 0.2s;
+  }
+
+  .benefit-card:hover { background: rgba(0,229,255,0.03); }
+
+  .benefit-icon {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,229,255,0.2);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--c);
+    margin-bottom: 4px;
+  }
+
+  .benefit-card strong {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.88);
+  }
+
+  .benefit-card span {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 14px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.42);
+  }
+
+  /* ── USAGE SECTION ── */
+  .usage-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .usage-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+    margin-bottom: 20px;
+  }
+
+  .usage-step {
+    background: #070707;
+    padding: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    position: relative;
+    transition: background 0.2s;
+  }
+
+  .usage-step:hover { background: rgba(0,229,255,0.03); }
+
+  .step-icon {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    background: rgba(0,229,255,0.08);
+    border: 1px solid rgba(0,229,255,0.18);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--c);
+  }
+
+  .step-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.15);
+    position: absolute;
+    top: 16px; right: 16px;
+  }
+
+  .step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .step-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.32);
+  }
+
+  .step-text {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.4;
+  }
+
+  .usage-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    border: 1px solid rgba(255,200,0,0.12);
+    background: rgba(255,200,0,0.03);
+  }
+
+  .usage-warning svg { color: rgba(255,200,0,0.6); flex-shrink: 0; margin-top: 2px; }
+
+  .usage-warning p {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.06em;
+    color: rgba(255,200,0,0.5);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ── NUTRITION ── */
+  .nutrition-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .nutr-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 1px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nutr-highlight {
+    background: rgba(0,229,255,0.04);
+    padding: 36px 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    border-right: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nutr-big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--c);
+  }
+
+  .nutr-big small {
+    font-size: 0.45em;
+    color: var(--m);
+  }
+
+  .nutr-big-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    line-height: 1.6;
+  }
+
+  .nutr-sub-val {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .nsv-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    line-height: 1;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .nsv-lbl {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.28);
+  }
+
+  .nutr-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #070707;
+    align-self: stretch;
+  }
+
+  .nutr-table thead th {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.3);
+    padding: 16px 28px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nutr-table thead th:last-child { text-align: right; color: var(--c); }
+
+  .nutr-table tbody td {
+    padding: 18px 28px;
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nutr-table tbody td:last-child {
+    text-align: right;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    color: #fff;
+  }
+
+  .nutr-row-sub td { color: rgba(255,255,255,0.38) !important; font-size: 14px !important; padding-left: 44px !important; }
+  .nutr-row-sub td:last-child { font-size: 16px !important; color: rgba(255,255,255,0.5) !important; }
+  .nutr-table tbody tr:last-child td { border-bottom: none; }
+
+  /* ── INGREDIENTS ── */
+  .ingredients-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 64px;
+  }
+
+  .ingredients-block {
+    padding: 28px 32px;
+    border: 1px solid rgba(255,255,255,0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: rgba(255,255,255,0.015);
+  }
+
+  .ing-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #070707;
+    background: var(--c);
+    padding: 4px 12px;
+    font-weight: 700;
+    width: fit-content;
+  }
+
+  .ing-main {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.85);
+    margin: 0;
+    letter-spacing: 0.02em;
+  }
+
+  .ing-allergen {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.28);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  .ing-allergen strong { color: rgba(255,255,255,0.55); font-weight: 500; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1200px) {
+    .desc-inner { padding: 0 40px; }
+    .benefits-band, .usage-section, .nutrition-section, .ingredients-section { padding: 0 40px; }
+  }
+
+  @media (max-width: 1024px) {
+    .benefits-band { grid-template-columns: repeat(2, 1fr); }
+    .usage-steps { grid-template-columns: repeat(2, 1fr); }
+    .nutr-layout { grid-template-columns: 1fr; }
+    .nutr-highlight { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.06); flex-direction: row; gap: 24px; align-items: center; }
+    .cert-row { flex-wrap: wrap; }
+  }
+
+  @media (max-width: 900px) {
+    .desc-inner { grid-template-columns: 1fr; padding: 0 32px; gap: 40px; }
+    .desc-left { position: static; }
+    .benefits-band, .usage-section, .nutrition-section, .ingredients-section { padding: 0 32px; }
+  }
+
+  @media (max-width: 680px) {
+    .benefits-band { grid-template-columns: 1fr 1fr; }
+    .usage-steps { grid-template-columns: 1fr 1fr; }
+    .nutr-highlight { flex-direction: column; align-items: flex-start; gap: 12px; }
+    .nutr-table { font-size: 13px; }
+    .nutr-table th, .nutr-table td { padding: 12px 16px; }
+  }
+
+  @media (max-width: 600px) {
+    .desc-section { padding: 56px 0 72px; gap: 52px; }
+    .desc-inner, .benefits-band, .usage-section, .nutrition-section, .ingredients-section { padding: 0 20px; }
+    .benefits-band { grid-template-columns: 1fr; }
+    .usage-steps { grid-template-columns: 1fr; }
+    .nutr-product { display: none; }
+  }
+
+  @media (max-width: 420px) {
+    .desc-section { padding: 48px 0 60px; gap: 44px; }
+    .desc-inner, .benefits-band, .usage-section, .nutrition-section, .ingredients-section { padding: 0 16px; }
+    .desc-title { font-size: 52px; }
+    .nutr-big { font-size: 56px; }
+    .purity-badge { flex-direction: column; align-items: flex-start; }
+    .ingr-block, .ingredients-block { overflow-x: auto; }
+  }
+</style>

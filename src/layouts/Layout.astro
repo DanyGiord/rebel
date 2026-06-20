@@ -1,3 +1,6 @@
+---
+import { ClientRouter } from 'astro:transitions';
+---
 <!doctype html>
 <html lang="en">
 	<head>
@@ -6,18 +9,119 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Rebel Line</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;500;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+		<ClientRouter />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
+<script>
+  import { gsap } from 'gsap';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  function initAnimations() {
+    ScrollTrigger.getAll().forEach(t => t.kill());
+    gsap.killTweensOf('.product-img, .product-ground');
+
+    // Restore all elements to natural state before re-animating
+    gsap.set(
+      '.desc-left, .body-text > *, .sb-row, .nutr-table tbody tr, .usage-step, .ingredients-block, .usage-warning, .timing-note, .nutrition-block, .nav, .hero-wordmark, .label-tag, .hero-heading, .hero-desc, .btn-guide, .hero-center, .hero-right, .scroll-hint, .hero-left .spec-item',
+      { clearProps: 'all' }
+    );
+
+    // ── Hero entrance (nav, heading, product only) ────────────────────
+    const tl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.05 });
+
+    tl.from('.nav',              { y: -30, opacity: 0, duration: 0.55 }, 0)
+      .from('.hero-wordmark',    { opacity: 0, scale: 1.05, duration: 1.0 }, 0.05)
+      .from('.label-tag',        { y: 24, opacity: 0, duration: 0.55 }, 0.12)
+      .from('.hero-heading',     { y: 32, opacity: 0, duration: 0.65 }, 0.22)
+      .from('.hero-desc',        { y: 20, opacity: 0, duration: 0.55 }, 0.32)
+      .from('.hero-center',      { y: 44, opacity: 0, scale: 0.95, duration: 0.9, ease: 'expo.out' }, 0.18)
+      .from('.hero-left .spec-item', { y: 20, opacity: 0, duration: 0.5, stagger: 0.08 }, 0.4)
+      .from('.btn-guide',        { y: 16, opacity: 0, duration: 0.4 }, 0.82)
+      .from('.hero-right > *',   { x: 24, opacity: 0, duration: 0.5, stagger: 0.07 }, 0.35)
+      .from('.scroll-hint',      { opacity: 0, duration: 0.4 }, 0.95);
+
+    // ── Product float ────────────────────────────────────────────────
+    gsap.to('.product-img', {
+      y: -22, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1,
+    });
+    gsap.to('.product-ground', {
+      scaleX: 0.75, opacity: 0.4, duration: 3.5, ease: 'sine.inOut', yoyo: true, repeat: -1,
+    });
+
+    // ── ScrollTrigger: description reveals ───────────────────────────
+    // clearProps restores elements to visible if trigger never fires
+    gsap.utils.toArray<HTMLElement>('.desc-left, .body-text > *').forEach((el) => {
+      gsap.from(el, {
+        immediateRender: false,
+        scrollTrigger: { trigger: el, start: 'top 98%', once: true },
+        y: 36, opacity: 0, duration: 0.7, ease: 'power2.out',
+      });
+    });
+
+    gsap.utils.toArray<HTMLElement>('.sb-row, .nutr-table tbody tr, .usage-step').forEach((el, i) => {
+      gsap.from(el, {
+        immediateRender: false,
+        scrollTrigger: { trigger: el, start: 'top 100%', once: true },
+        x: -20, opacity: 0, duration: 0.5, delay: i * 0.055, ease: 'power2.out',
+      });
+    });
+
+    gsap.utils.toArray<HTMLElement>('.ingredients-block, .usage-warning, .timing-note, .nutrition-block').forEach((el) => {
+      gsap.from(el, {
+        immediateRender: false,
+        scrollTrigger: { trigger: el, start: 'top 100%', once: true },
+        y: 20, opacity: 0, duration: 0.6, ease: 'power2.out',
+      });
+    });
+
+    // Force ScrollTrigger to re-evaluate all trigger positions
+    ScrollTrigger.refresh();
+  }
+
+  initAnimations();
+  document.addEventListener('astro:page-load', initAnimations);
+</script>
+
 <style>
-	html,
-	body {
+	*, *::before, *::after { box-sizing: border-box; }
+	html, body {
 		margin: 0;
+		padding: 0;
 		width: 100%;
 		height: 100%;
+		background: #080808;
+		overflow-x: hidden;
+	}
+
+	/* ── View Transition: opacity-only, GPU-safe ── */
+	::view-transition-old(root) {
+		animation: 40ms linear both page-out;
+	}
+	::view-transition-new(root) {
+		animation: 60ms linear both page-in;
+	}
+
+	@keyframes page-out {
+		to { opacity: 0; }
+	}
+	@keyframes page-in {
+		from { opacity: 0; }
+	}
+
+	/* Logo stays fixed — no transition */
+	::view-transition-old(nav-logo),
+	::view-transition-new(nav-logo) {
+		animation: none;
+		mix-blend-mode: normal;
 	}
 </style>
