@@ -1,10 +1,319 @@
 ---
-import Hero from '../components/Hero.astro';
-import Description from '../components/Description.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<Hero />
-	<Description />
+  <main class="home">
+
+    <!-- VIDEO BACKGROUND -->
+    <video
+      class="home-video"
+      src="/hero.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+    ></video>
+
+    <!-- Overlay -->
+    <div class="home-overlay"></div>
+
+    <!-- NAV -->
+    <nav class="home-nav">
+      <a href="/" class="home-logo" transition:name="nav-logo" transition:animate="none">
+        <img src="/logo.svg" alt="Battery Nutrition" height="36" />
+      </a>
+      <ul class="home-links">
+        <li><a href="/creatine">Creatine</a></li>
+        <li><a href="/bcaa">BCAA</a></li>
+        <li><a href="/whey">Whey</a></li>
+      </ul>
+    </nav>
+
+    <!-- HERO CONTENT -->
+    <div class="home-content">
+      <p class="home-label"><span class="label-line"></span>REBEL LINE</p>
+      <h1 class="home-heading">
+        <span class="h-top">BATTERY</span>
+        <span class="h-mid">NUTRITION</span>
+      </h1>
+      <p class="home-sub">Performance supplements engineered for those who refuse to settle.</p>
+
+      <div class="home-products">
+        <a href="/creatine" class="prod-card">
+          <span class="prod-name">Creatine</span>
+          <span class="prod-arrow">→</span>
+        </a>
+        <a href="/bcaa" class="prod-card">
+          <span class="prod-name">BCAA</span>
+          <span class="prod-arrow">→</span>
+        </a>
+        <a href="/whey" class="prod-card">
+          <span class="prod-name">Whey Protein</span>
+          <span class="prod-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- scroll hint -->
+    <div class="home-scroll">
+      <div class="scroll-bar"><span></span></div>
+      <span class="scroll-txt">EXPLORE</span>
+    </div>
+
+  </main>
 </Layout>
+
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .home {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  /* ── VIDEO ── */
+  .home-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ── OVERLAY ── */
+  .home-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(to bottom, rgba(7,7,7,0.55) 0%, rgba(7,7,7,0.2) 40%, rgba(7,7,7,0.7) 100%),
+      linear-gradient(to right, rgba(7,7,7,0.5) 0%, transparent 60%);
+  }
+
+  /* ── NAV ── */
+  .home-nav {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 64px;
+  }
+
+  .home-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+  }
+
+  .home-logo img { height: 36px; width: auto; display: block; }
+
+  .home-links {
+    list-style: none;
+    display: flex;
+    gap: 36px;
+    margin: 0; padding: 0;
+  }
+
+  .home-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .home-links a:hover { color: #fff; }
+
+  /* ── CONTENT ── */
+  .home-content {
+    position: relative;
+    z-index: 10;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 64px;
+    max-width: 900px;
+  }
+
+  .home-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+    margin: 0 0 20px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .label-line {
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+  }
+
+  .home-heading {
+    font-family: 'Bebas Neue', sans-serif;
+    margin: 0 0 20px;
+    line-height: 0.88;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.3s;
+  }
+
+  .h-top {
+    display: block;
+    font-size: clamp(56px, 8vw, 120px);
+    color: rgba(255,255,255,0.9);
+    letter-spacing: 0.06em;
+  }
+
+  .h-mid {
+    display: block;
+    font-size: clamp(80px, 13vw, 200px);
+    letter-spacing: 0.03em;
+    color: #fff;
+    line-height: 0.85;
+  }
+
+  .home-sub {
+    font-size: clamp(15px, 1.4vw, 18px);
+    font-weight: 400;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.02em;
+    margin: 0 0 48px;
+    max-width: 520px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease forwards 0.45s;
+  }
+
+  /* ── PRODUCT CARDS ── */
+  .home-products {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.58s;
+  }
+
+  .prod-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 28px;
+    border: 1px solid rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.04);
+    backdrop-filter: blur(8px);
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  }
+
+  .prod-card:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+  }
+
+  .prod-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.14em;
+  }
+
+  .prod-arrow {
+    font-size: 16px;
+    color: rgba(255,255,255,0.5);
+    transition: transform 0.2s, color 0.2s;
+  }
+
+  .prod-card:hover .prod-arrow {
+    transform: translateX(4px);
+    color: #fff;
+  }
+
+  /* ── SCROLL HINT ── */
+  .home-scroll {
+    position: absolute;
+    bottom: 32px;
+    left: 64px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.9s;
+  }
+
+  .scroll-bar {
+    width: 48px;
+    height: 1px;
+    background: rgba(255,255,255,0.15);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .scroll-bar span {
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: rgba(255,255,255,0.6);
+    animation: scanBar 2s ease-in-out infinite 1.2s;
+  }
+
+  .scroll-txt {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    color: rgba(255,255,255,0.3);
+    text-transform: uppercase;
+  }
+
+  /* ── KEYFRAMES ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scanBar {
+    0%   { left: -100%; }
+    50%  { left: 0%; }
+    100% { left: 100%; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .home-nav { padding: 20px 28px; }
+    .home-links { gap: 20px; }
+    .home-content { padding: 0 28px; }
+    .home-scroll { left: 28px; }
+  }
+
+  @media (max-width: 480px) {
+    .home-nav { padding: 16px 20px; }
+    .home-links { display: none; }
+    .home-content { padding: 0 20px; }
+    .home-scroll { display: none; }
+    .home-products { flex-direction: column; }
+    .prod-card { justify-content: space-between; }
+  }
+</style>
